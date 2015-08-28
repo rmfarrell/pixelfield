@@ -1,0 +1,11 @@
+block content
+  form#uploader(action="/uploads/new-image",method="post",enctype="multipart/form-data")
+    input(type="file", name="uploadme")
+    br
+    input(type="number", name="height", placeholder="height")
+    br
+    input(type="number", name="width", placeholder="width")
+    br
+    input(type="submit")
+
+  div#preview.pixelfield

@@ -1,0 +1,46 @@
+{
+  "name": "pixelfield",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "backbone": "^1.2.1",
+    "bluebird": "^2.9.34",
+    "body-parser": "~1.13.2",
+    "browser-sync": "^2.5.3",
+    "canvas": "^1.2.7",
+    "coffee": "^1.1.0",
+    "connect-multiparty": "^2.0.0",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "gm": "^1.18.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-coffee": "^2.3.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-connect": "^2.2.0",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-minify-css": "^1.0.0",
+    "gulp-sequence": "^0.3.2",
+    "gulp-shell": "^0.4.0",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-stylus": "^2.0.5",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.4",
+    "jade": "~1.11.0",
+    "lesshat": "^3.0.2",
+    "livereload": "^0.3.7",
+    "merge": "^1.2.0",
+    "morgan": "~1.6.1",
+    "node-image-resize": "0.0.2",
+    "node-uuid": "^1.4.3",
+    "nodemon": "^1.3.8",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.4.0"
+  }
+}
