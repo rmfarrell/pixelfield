@@ -70,9 +70,14 @@ $('document').ready ->
 			data: form_data
 			type: 'post',
 			success: (res) ->
+
+				# Clear the preview
+				$('#preview').html('')
+
+				# Generate the preview
 				pixelField = new PixelField(res.pixels, res.dimensions.width, res.dimensions.height)
-				pixelField.generateHTML(document.getElementById('preview'))
-				pixelField.insertText('this is some text', true)
+				pixelField.init(document.getElementById('preview'))
+
 			error: ->
 				console.log 'error'
 		})

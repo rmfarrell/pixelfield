@@ -9,6 +9,11 @@ router.use('/new-image', function(req, res, next) {
 	next();
 })
 
+router.post('/modify', function(req, res, next) {
+
+
+})
+
 router.post('/new-image', function(req, res, next) {
   
 	try {
@@ -25,7 +30,7 @@ router.post('/new-image', function(req, res, next) {
     					height: size.height,
     					width: size.width
     				},
-    				pixels: pixels,
+    				pixels: pixels
     			}, null, 3));
 			})
 

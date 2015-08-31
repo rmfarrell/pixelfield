@@ -1,11 +1,20 @@
 block content
-  form#uploader(action="/uploads/new-image",method="post",enctype="multipart/form-data")
-    input(type="file", name="uploadme")
-    br
-    input(type="number", name="height", placeholder="height")
-    br
-    input(type="number", name="width", placeholder="width")
-    br
-    input(type="submit")
+.upload_form
+  .row
+    .columns.large-4
+      form#uploader(action="/uploads/new-image",method="post",enctype="multipart/form-data")
+        .row
+          .columns.large-12
+            input(type="file", name="uploadme")
+        .row
+          .columns.large-6
+            input(type="number", name="height", placeholder="height")
+          .columns.large-6
+            input(type="number", name="width", placeholder="width")
+        .row
+          .columns.large-6
+            input(type="submit")
 
-  div#preview.pixelfield
+  .row
+    .columns.large-12
+      div#preview.pixelfield

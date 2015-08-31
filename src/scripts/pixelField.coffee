@@ -2,6 +2,7 @@ class PixelField
 	constructor: (@pixelArray, @width, @height) ->
 
 	container: null
+	styleSheet: null
 
 	parseMemberType: () ->
 		func = ""
@@ -9,6 +10,9 @@ class PixelField
 			when "div" then func = div
 			else func = div
 		return func
+
+	addCSSRules: (sheet, selector, rules, index) ->
+
 
 	div: (index) ->
 		return "<div class='pf-" + index + "'></div>"
@@ -34,36 +38,48 @@ class PixelField
 			el.innerHTML = text[index]
 
 
-	genrateCSS: () ->
+	# baseCSS: () ->
 
-		css = ".pixelfield .row { height: " + parseFloat(100/@height) + "%}"
-		css += ".pixelfield .row > div { width: " + parseFloat(100/@width) + "%}"
-		css += ".pixelfield { height: 0;padding-bottom: " + parseFloat(@height/@width) * 100 + "%}"
+	# 	css = ".pixelfield .pf-row { height: " + parseFloat(100/@height) + "%}"
+	# 	css += ".pixelfield .pf-row > div { width: " + parseFloat(100/@width) + "%}"
+	# 	css += ".pixelfield { height: 0;padding-bottom: " + parseFloat(@height/@width) * 100 + "%}"
 
-		c = 0
-		for row in @pixelArray
-			for arr in row
-				c++
-				color = "rgba(" + arr.toString() + ")"
-				css += ".pf-" + c + "{" + 
-				"color:" + color + 
-				"; background-color:" + color + 
-				"}"
-		return css
+	# 	c = 0
+	# 	for row in @pixelArray
+	# 		for arr in row
+	# 			c++
+	# 			color = "rgba(" + arr.toString() + ")"
+	# 			css += ".pf-" + c + "{" + 
+	# 			"color:" + color + 
+	# 			"; background-color:" + color + 
+	# 			"}"
+	# 	return css
 
-	generateHTML: (container) ->
+	generateCSS: () ->
+		style = document.createElement('style')
+		style.appendChild(document.createTextNode(""))
+		@container.appendChild(style)
+		return style
 
+	baseStyles: () ->
+		console.log @styleSheet.sheet
+		@styleSheet.sheet.addRule(".pixelfield .pf-row", "height:" + parseFloat(100/@height) + "%")
+		@styleSheet.sheet.addRule(".pixelfield .pf-row > div", "width:" + parseFloat(100/@height) + "%")
+		@styleSheet.sheet.addRule(".pixelfield", "height: 0;padding-bottom:" + parseFloat(@height/@width) * 100 + "%")
+
+
+	init: (container) ->
 		@container = container
+		@generateHTML()
+		@styleSheet = @generateCSS(container)
+		@baseStyles()
 
-		css = this.genrateCSS(container)
-		@container.innerHTML += "<style>" + 
-		@container.innerHTML += css
-		@container.innerHTML += "</style>"
-		html="<div class='row-container'>"
+	generateHTML: () ->
+		html="<div class='pf-row-container'>"
 		c = 0
 
 		for row, i in @pixelArray
-			html += "<div class='row'>"
+			html += "<div class='pf-row'>"
 			for arr, i in row
 				c++
 				html += "<div class='pf-" + c + "'></div>"
